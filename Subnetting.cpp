@@ -15,6 +15,7 @@ private:
 public:
 	void getIP()
 	{
+		cout << "Press Enter to start.";
 		while ((getchar()) != '\n');
 		cout<<"Enter IPv4 Address : ";
 		getline(cin, ipAddress);
@@ -39,7 +40,7 @@ public:
 	
 	int getSubnet()
 	{
-		cout<<"Enter Subnet (if given) : ";
+		cout<<"Enter Subnet (if given, e.g: 255.255.255.0) : ";
 		getline(cin, subnet);
 		if(subnet == "")
 			return 0;
@@ -192,7 +193,8 @@ public:
 			nIdo4 = 0;
 			while(nIdo4 < 256)
 			{
-				cout<<nIdo1<<"."<<nIdo2<<"."<<nIdo3<<"."<<nIdo4<<"\n";
+				printed++;
+				cout<<"[ " << printed <<" ] "<< nIdo1<<"."<<nIdo2<<"."<<nIdo3<<"."<<nIdo4<<"\n";
 				nIdo4 += blockSize;
 			}
 		}
@@ -204,7 +206,8 @@ public:
 			nIdo4 = 0;
 			while(nIdo3 < 256)
 			{
-				cout<<nIdo1<<"."<<nIdo2<<"."<<nIdo3<<"."<<nIdo4<<"\n";
+				printed++;
+				cout<<"[ " << printed <<" ] "<< nIdo1<<"."<<nIdo2<<"."<<nIdo3<<"."<<nIdo4<<"\n";
 				nIdo3 += blockSize;
 			}
 		}
@@ -216,7 +219,8 @@ public:
 			nIdo4 = 0;
 			while(nIdo2 < 256)
 			{
-				cout<<nIdo1<<"."<<nIdo2<<"."<<nIdo3<<"."<<nIdo4<<"\n";
+				printed++;
+				cout<<"[ " << printed <<" ] "<< nIdo1<<"."<<nIdo2<<"."<<nIdo3<<"."<<nIdo4<<"\n";
 				nIdo2 += blockSize;
 			}
 		}
@@ -228,7 +232,8 @@ public:
 			nIdo4 = 0;
 			while(nIdo1 < 256)
 			{
-				cout<<nIdo1<<"."<<nIdo2<<"."<<nIdo3<<"."<<nIdo4<<"\n";
+				printed++;
+				cout<<"[ " << printed <<" ] "<< nIdo1<<"."<<nIdo2<<"."<<nIdo3<<"."<<nIdo4<<"\n";
 				nIdo1 += blockSize;
 			}
 		}
@@ -259,7 +264,7 @@ public:
 					cout<<nIdo1<<"."<<nIdo2<<"."<<nIdo3<<"."<<nIdo4+1<<"\n";
 					cout<<"Last Valid host\t: ";
 					cout<<nIdo1<<"."<<nIdo2<<"."<<nIdo3<<"."<<nIdo4+blockSize-2<<"\n";
-					cout<<"Broadcasr ID\t: ";
+					cout<<"Broadcast ID\t: ";
 					cout<<nIdo1<<"."<<nIdo2<<"."<<nIdo3<<"."<<nIdo4+blockSize-1<<"\n";
 					printed = 1;
 					break;
@@ -341,7 +346,6 @@ public:
 			}
 		}
 	}
-
 };
 
 int subnetting()
@@ -363,8 +367,8 @@ int subnetting()
 	cout<<"CIDR\t: "; address1.showCIDR();
 	address1.showNumOfSubnets();
 	address1.showNetworkMetadata();
-	// cout<<"\nAvailable Networks : \n";
-	// address1.subnetMetadata();
+	cout<<"\nAvailable Networks : \n";
+	address1.subnetMetadata();
 	return 1;
 }
 
@@ -382,7 +386,9 @@ int main()
 		else
 		{
 			system("clear");
-			cout<<"\n\nHAve a nice day !!!\n\n";
+			cout<<"\n\nHave a nice day !!!\n\n";
+			cout<<"\t\t~ Mayank Yadav\n\n";
+			cout<<"\t\t@ yadavmayank742\n\n";
 			while ((getchar()) != '\n');
 			return 0;
 		}
